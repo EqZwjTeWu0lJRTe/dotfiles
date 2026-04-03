@@ -1,3 +1,59 @@
 zsh/.zshrc filter=git-crypt diff=git-crypt
 opencode/.config/opencode/opencode.json filter=git-crypt diff=git-crypt
 *.json filter=git-crypt diff=git-crypt
+bashrc/.bashrc filter=git-crypt diff=git-crypt
+claude.json/.claude.json filter=git-crypt diff=git-crypt
+.gitattributes !filter !diff
+# 1. 环境变量文件（最常用）
+.env filter=git-crypt diff=git-crypt
+.env.* filter=git-crypt diff=git-crypt
+.env.local filter=git-crypt diff=git-crypt
+.env.production filter=git-crypt diff=git-crypt
+.env.staging filter=git-crypt diff=git-crypt
+
+# 2. SSH 密钥相关
+*.key filter=git-crypt diff=git-crypt
+*.pem filter=git-crypt diff=git-crypt
+*.priv filter=git-crypt diff=git-crypt
+id_rsa filter=git-crypt diff=git-crypt
+id_ed25519 filter=git-crypt diff=git-crypt
+
+# 3. 证书文件
+*.crt filter=git-crypt diff=git-crypt
+*.p12 filter=git-crypt diff=git-crypt
+*.pfx filter=git-crypt diff=git-crypt
+
+# 4. API 密钥/凭证文件
+secrets/** filter=git-crypt diff=git-crypt
+credentials/** filter=git-crypt diff=git-crypt
+*secret* filter=git-crypt diff=git-crypt
+*credential* filter=git-crypt diff=git-crypt
+
+# 5. 云服务凭证
+aws-credentials* filter=git-crypt diff=git-crypt
+gcloud-credentials* filter=git-crypt diff=git-crypt
+.terraform/terraform.tfstate filter=git-crypt diff=git-crypt
+
+# 6. 配置文件中的敏感文件
+config/database.yml filter=git-crypt diff=git-crypt
+config/secrets.yml filter=git-crypt diff=git-crypt
+config/application.yml filter=git-crypt diff=git-crypt
+config/*_key* filter=git-crypt diff=git-crypt
+
+# 7. Docker 相关
+docker/secrets/** filter=git-crypt diff=git-crypt
+.docker/config.json filter=git-crypt diff=git-crypt
+
+# 8. Kubernetes secrets
+k8s/secrets/** filter=git-crypt diff=git-crypt
+*secret*.yaml filter=git-crypt diff=git-crypt
+*secret*.yml filter=git-crypt diff=git-crypt
+
+# 9. 开发工具配置
+.idea/**/*key* filter=git-crypt diff=git-crypt
+.vscode/*secrets* filter=git-crypt diff=git-crypt
+
+# 10. 全局兜底规则
+**/*secret* filter=git-crypt diff=git-crypt
+**/*key* filter=git-crypt diff=git-crypt
+
