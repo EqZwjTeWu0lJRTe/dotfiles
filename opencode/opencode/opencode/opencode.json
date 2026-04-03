@@ -1,0 +1,74 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["/home/lyna/.config/opencode/obsidian/obsidian配置.md"],
+  "agent": {
+    "obsidian-manager": {
+      "description": "专门用于Obsidian知识管理的代理",
+      "mode": "subagent",
+      "model": "alibaba-cn/qwen3-vl-plus",
+      "prompt": "你是一个Obsidian知识管理专家。专注于笔记组织、知识链接、内容提炼和知识体系构建",
+      "tools": {
+        "write": true,
+        "edit": true,
+        "bash": true
+      }
+    }
+  },
+  "mcp": {
+    "filesystem": {
+      "type": "local",
+      "command": ["npx", "--yes", "@modelcontextprotocol/server-filesystem", "/home/lyna/"],
+      "enabled": true
+    },
+    "fetch": {
+      "type": "local",
+      "command": ["uvx", "mcp-server-fetch"],
+      "enabled": true
+    },
+    "obsidian-mcp": {
+      "type": "local",
+      "command": ["env", "OBSIDIAN_VAULT_PATH=/home/lyna/sync/文档/Obsidian/lyna-note", "OBSIDIAN_API_TOKEN=2c6af71dd6b8cddde78718953005d87334134aaa8c16a7e92b72a3fcaf4ada29", "OBSIDIAN_API_PORT=27123", "npx", "@huangyihe/obsidian-mcp"],
+      "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["npx", "@playwright/mcp@latest"],
+      "enabled": true
+    },
+    "mindmap": {
+      "type": "local",
+      "command": ["uvx", "mindmap-mcp-server", "--return-type", "html"],
+      "enabled": true
+    },
+    "scrapling-fetch-mcp": {
+      "type": "local",
+      "command": ["uvx", "scrapling-fetch-mcp"],
+      "enabled": true
+    },
+    "browsermcp": {
+      "type": "local",
+      "command": ["npx", "@browsermcp/mcp@latest"],
+      "enabled": true
+    },
+    "shell": {
+      "type": "local",
+      "command": ["pipx", "run", "mcp-shell-server"],
+      "enabled": true
+    },
+    "web-search": {
+      "type": "local",
+      "command": ["node", "/home/lyna/web-search/build/index.js"],
+      "enabled": true
+    },
+    "basic-memory": {
+      "type": "local",
+      "command": ["uvx", "basic-memory", "mcp", "--project", "my-ob-project"],
+      "enabled": true
+    },
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@latest"],
+      "enabled": true
+    }
+  }
+}
