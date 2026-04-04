@@ -4,6 +4,7 @@ opencode/.config/opencode/opencode.json filter=git-crypt diff=git-crypt
 bashrc/.bashrc filter=git-crypt diff=git-crypt
 claude.json/.claude.json filter=git-crypt diff=git-crypt
 .gitattributes !filter !diff
+**/*history* filter=git-crypt diff=git-crypt
 # 1. 环境变量文件（最常用）
 .env filter=git-crypt diff=git-crypt
 .env.* filter=git-crypt diff=git-crypt
