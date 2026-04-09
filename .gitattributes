@@ -61,3 +61,4 @@ k8s/secrets/** filter=git-crypt diff=git-crypt
 local/.local/bin/dotlink filter=git-crypt diff=git-crypt
 local/.local/bin/obsidian-wayland filter=git-crypt diff=git-crypt
 spacemacs/.spacemacs filter=git-crypt diff=git-crypt
+npmrc/.npmrc filter=git-crypt diff=git-crypt
